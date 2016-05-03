@@ -53,6 +53,9 @@ class Board:
                 )
 
     def is_in_board(self, word):
+        if len(word) == 0:
+            return False
+
         initial_tiles = [(x, y) for x,y in self.get_all_indices() if self.board[x][y] == word[0]]
         for index in initial_tiles:
             in_board = self.is_in_board_helper(
